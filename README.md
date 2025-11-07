@@ -1,40 +1,33 @@
-# Hotel Boss - Booking System
+# 🏨 Hotel Boss - Booking System
 
-A modern hotel booking website with email notifications built with Node.js backend and responsive HTML/CSS/JS frontend.
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)](https://www.docker.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green?logo=node.js)](https://nodejs.org/)
+[![HTML5](https://img.shields.io/badge/HTML5-Frontend-orange?logo=html5)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+[![CSS3](https://img.shields.io/badge/CSS3-Responsive-blue?logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-## Features
+A modern, fully responsive hotel booking website with bilingual support (Bosnian/English) and complete Docker deployment setup.
 
-- 🏨 Modern hotel website with responsive design
-- 📧 Email booking notifications
-- 🌐 Bilingual support (Bosnian/English)
-- 📱 Mobile-optimized interface
-- 🎨 Professional gallery with image filtering
-- 🔧 RESTful API backend
+## 🌟 Features
 
-## Tech Stack
+- 🏨 **Modern Hotel Website** - Professional design with responsive layout
+- 📧 **Email Booking System** - Automated email notifications for bookings
+- 🌐 **Bilingual Support** - Seamless switching between Bosnian and English
+- 📱 **Mobile Optimized** - Perfect experience on all devices
+- 🎨 **Professional Gallery** - Image filtering and categorization
+- 🐳 **Docker Ready** - Complete containerization for easy deployment
+- 🔒 **Security Features** - CORS, Helmet, Rate limiting
+- ⚡ **Performance Optimized** - Fast loading and smooth animations
 
-**Frontend:**
-- HTML5, CSS3, JavaScript
-- Responsive design
-- AOS animations
-- Bilingual language switcher
-
-**Backend:**
-- Node.js with Express
-- Email notifications with Nodemailer
-- CORS, Helmet, Rate limiting
-- RESTful API architecture
-
-## Quick Start with Docker
+## 🚀 Quick Start with Docker
 
 ### Prerequisites
-- Docker and Docker Compose installed
+- [Docker](https://www.docker.com/get-started) and Docker Compose installed
 
-### Production Setup
+### Production Deployment
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd hotel-booking
+git clone https://github.com/dzelilah/hotel-boss-booking-system.git
+cd hotel-boss-booking-system
 
 # Build and run with Docker Compose
 docker-compose up -d
@@ -56,24 +49,25 @@ docker-compose logs -f
 docker-compose down
 ```
 
-## Manual Setup (Without Docker)
+## 🛠️ Manual Setup (Without Docker)
 
 ### Backend Setup
 ```bash
 cd backend
 npm install
-cp .env.example .env  # Configure your environment variables
+# Configure your .env file (see Configuration section)
 npm start
 ```
 
 ### Frontend Setup
 ```bash
 cd frontend/public
+# Serve static files using any web server
 python -m http.server 3000
-# or use any static file server
+# or use live-server, nginx, apache, etc.
 ```
 
-## Environment Configuration
+## ⚙️ Configuration
 
 Create `.env` file in the backend directory:
 
@@ -84,7 +78,7 @@ NODE_ENV=production
 
 # Hotel Configuration  
 HOTEL_NAME=Hotel Boss
-HOTEL_EMAIL=info@hoteleurope.com
+HOTEL_EMAIL=info@hotelboss.com
 
 # SMTP Email Configuration
 SMTP_HOST=your-smtp-host
@@ -93,15 +87,15 @@ SMTP_USER=your-email@domain.com
 SMTP_PASS=your-email-password
 ```
 
-## API Endpoints
+## 📡 API Endpoints
 
 - `POST /api/booking` - Submit booking request
 - `GET /health` - Health check endpoint
 
-## Project Structure
+## 🏗️ Project Structure
 
 ```
-hotel-booking/
+hotel-boss-booking-system/
 ├── backend/                 # Node.js API server
 │   ├── src/
 │   │   ├── app.js          # Main application file
@@ -122,7 +116,29 @@ hotel-booking/
 └── README.md
 ```
 
-## Docker Commands
+## 🎨 Features Showcase
+
+### 🌐 Bilingual Support
+- Instant language switching between Bosnian and English
+- Persistent language selection using localStorage
+- Complete translation coverage for all content
+
+### 📱 Responsive Design
+- Mobile-first approach
+- Optimized navigation for touch devices
+- Perfect scaling across all screen sizes
+
+### 🎯 Professional Gallery
+- Category-based image filtering
+- Lightbox functionality for detailed viewing
+- Optimized image loading and display
+
+### 📧 Email Integration
+- Automated booking confirmations
+- Professional email templates
+- SMTP configuration for reliable delivery
+
+## 🐳 Docker Commands
 
 ```bash
 # Build images
@@ -144,28 +160,67 @@ docker-compose down -v
 docker-compose up -d --build
 ```
 
-## Development
+## 🔧 Tech Stack
 
-For local development with live reload:
+**Frontend:**
+- HTML5, CSS3, JavaScript (ES6+)
+- Responsive design with CSS Grid & Flexbox
+- AOS animations library
+- Custom bilingual language switcher
 
-1. Use `docker-compose.dev.yml` for containerized development
-2. Or run services manually for faster iteration
+**Backend:**
+- Node.js with Express.js
+- Email notifications with Nodemailer
+- Security: CORS, Helmet, Rate limiting
+- Request logging with Morgan
+- RESTful API architecture
 
-## Production Deployment
+**DevOps:**
+- Docker & Docker Compose
+- Multi-stage builds
+- Production-ready containerization
+- Environment-based configuration
 
-1. Update environment variables in `.env`
-2. Configure proper SMTP settings
-3. Use `docker-compose.yml` for production
-4. Consider using reverse proxy (nginx) for SSL termination
+## 🔒 Security Features
 
-## Contributing
+- Backend runs as non-root user in containers
+- Security headers enabled (Helmet.js)
+- CORS properly configured
+- Rate limiting for API endpoints
+- Environment variables for sensitive data
+
+## 🚀 Deployment Options
+
+### Cloud Platforms
+- **Heroku**: Direct Docker deployment
+- **DigitalOcean**: Docker droplets
+- **AWS ECS**: Container service
+- **Google Cloud Run**: Serverless containers
+
+### VPS Deployment
+1. Clone repository on your server
+2. Configure environment variables
+3. Run `docker-compose up -d`
+4. Setup reverse proxy (nginx) for SSL
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create feature branch
-3. Make changes
-4. Test thoroughly
-5. Submit pull request
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## License
+## 📧 Contact
 
-This project is licensed under the MIT License.
+- **Website**: [Hotel Boss Demo](http://localhost:3000)
+- **Repository**: [GitHub](https://github.com/dzelilah/hotel-boss-booking-system)
+- **Issues**: [Report Bug](https://github.com/dzelilah/hotel-boss-booking-system/issues)
+
+---
+
+<p align="center">Made with ❤️ for modern hotel management</p>
