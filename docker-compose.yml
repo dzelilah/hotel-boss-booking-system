@@ -1,0 +1,30 @@
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: hotel-booking-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+    networks:
+      - hotel-network
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: hotel-booking-frontend
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    depends_on:
+      - backend
+    networks:
+      - hotel-network
+
+networks:
+  hotel-network:
+    driver: bridge

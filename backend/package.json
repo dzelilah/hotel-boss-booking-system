@@ -1,0 +1,38 @@
+{
+  "name": "hotel-booking-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Hotel Europe booking system backend API with email notifications",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "node --test",
+    "test:email": "node src/tests/testEmail.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.7",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "hotel",
+    "booking",
+    "email",
+    "api",
+    "express",
+    "nodemailer"
+  ],
+  "author": "Hotel Europe Dev Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

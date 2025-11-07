@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms & Suites - Hotel Boss</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="Hotel Boss Logo">
+            </div>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="mobile-menu">
+                <li><a href="index.html" data-text-key="nav-home">POČETNA</a></li>
+                <li><a href="rooms.html" data-text-key="nav-rooms">SOBE</a></li>
+                <li><a href="about.html" data-text-key="nav-about">O NAMA</a></li>
+                <li><a href="gallery.html" data-text-key="nav-gallery">GALERIJA SLIKA</a></li>
+                <li><a href="contact.html" data-text-key="nav-contact">REZERVIŠI SMJEŠTAJ</a></li>
+                <li class="language-menu-item">
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="bs">🇧🇦 BS</button>
+                        <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="hero-content" data-aos="fade-left">
+                <h2>Naše Sobe</h2>
+                <p>16 komfornih i luksuznih soba uređenih u skladu sa najnovijim trendovima za Vaš savršen boravak.</p>
+            </div>
+        </section>
+
+        <section class="room-types">
+            <div class="container">
+                <div class="room-grid">
+                    <div class="room-card detailed" data-aos="fade-up" data-aos-delay="100">
+                        <div class="room-image">
+                            <img src="assets/images/room1.jpg" alt="Standard Soba">
+                            <div class="room-badge">Najpopularnija</div>
+                        </div>
+                        <div class="room-info">
+                            <h3>Standard Soba</h3>
+                            <p class="room-description">Dvokrevetna soba sa bračnim krevetom. Soba pored ostalog sadrži i mini-bar, klima uređaj i Led TV.</p>
+                            
+                            <div class="room-features">
+                                <h4>U cenu sobe je uključeno:</h4>
+                                <ul>
+                                    <li>�️ Udobnost</li>
+                                    <li>🍳 Doručak</li>
+                                    <li>� Hotspot (WiFi)</li>
+                                    <li>🍷 Mini Bar</li>
+                                    <li>🏙️ Pogled na grad</li>
+                                    <li>🔒 Sigurnosni sef</li>
+                                    <li>❄️ Klima</li>
+                                    <li>🕐 7/24 service</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="room-services">
+                                <h4>Usluge:</h4>
+                                <div class="services-grid">
+                                    <span>🍷 Mini Bar</span>
+                                    <span>� WI-FI</span>
+                                    <span>❄️ Klima</span>
+                                    <span>� LED TV</span>
+                                    <span>🕐 7/24 SERVICE</span>
+                                </div>
+                            </div>
+                            
+                            <div class="room-specs">
+                                <span>👥 Maksimalno: 2 odrasle osobe</span>
+                                <span>🛏️ Bračni krevet</span>
+                            </div>
+                            <div class="price-booking">
+                                <a href="contact.html" class="book-btn">Rezervišite Sada</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="room-card detailed" data-aos="fade-up" data-aos-delay="200">
+                        <div class="room-image">
+                            <img src="assets/images/room2.jpg" alt="Deluxe Soba">
+                            <div class="room-badge deluxe">Deluxe</div>
+                        </div>
+                        <div class="room-info">
+                            <h3>Deluxe Soba</h3>
+                            <p class="room-description">Dvokrevetna soba sa 1+1 dva kreveta. Soba pored ostalog sadrži i mini-bar, klima uređaj i Led TV.</p>
+                            
+                            <div class="room-features">
+                                <h4>U cenu sobe je uključeno:</h4>
+                                <ul>
+                                    <li>🛏️ Udobnost</li>
+                                    <li>🍳 Doručak</li>
+                                    <li>📶 Hotspot (WiFi)</li>
+                                    <li>🍷 Mini Bar</li>
+                                    <li>�️ Pogled na grad</li>
+                                    <li>� Sigurnosni sef</li>
+                                    <li>❄️ Klima</li>
+                                    <li>� 7/24 service</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="room-services">
+                                <h4>Usluge:</h4>
+                                <div class="services-grid">
+                                    <span>🍷 Mini Bar</span>
+                                    <span>📶 WI-FI</span>
+                                    <span>❄️ Klima</span>
+                                    <span>� LED TV</span>
+                                    <span>� 7/24 SERVICE</span>
+                                </div>
+                            </div>
+                            
+                            <div class="room-specs">
+                                <span>👥 Maksimalno: 2 odrasle osobe</span>
+                                <span>🛏️ 1+1 dva kreveta</span>
+                            </div>
+                            <div class="price-booking">
+                                <a href="contact.html" class="book-btn">Rezervišite Sada</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="room-card detailed" data-aos="fade-up" data-aos-delay="300">
+                        <div class="room-image">
+                            <img src="assets/images/suite.jpg" alt="Family Suite">
+                            <div class="room-badge suite">Family Suite</div>
+                        </div>
+                        <div class="room-info">
+                            <h3>Family Suite</h3>
+                            <p class="room-description">Spojene dve dvokrevetne sobe za porodice. Soba pored ostalog sadrži i mini-bar, klima uređaj i Led TV.</p>
+                            
+                            <div class="room-features">
+                                <h4>U cenu sobe je uključeno:</h4>
+                                <ul>
+                                    <li>🛏️ Udobnost</li>
+                                    <li>🍳 Doručak</li>
+                                    <li>� Hotspot (WiFi)</li>
+                                    <li>🍷 Mini Bar</li>
+                                    <li>🏙️ Pogled na grad</li>
+                                    <li>� Sigurnosni sef</li>
+                                    <li>❄️ Klima</li>
+                                    <li>� 7/24 service</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="room-services">
+                                <h4>Usluge:</h4>
+                                <div class="services-grid">
+                                    <span>🍷 Mini Bar</span>
+                                    <span>📶 WI-FI</span>
+                                    <span>❄️ Klima</span>
+                                    <span>� LED TV</span>
+                                    <span>🕐 7/24 SERVICE</span>
+                                </div>
+                            </div>
+                            
+                            <div class="room-specs">
+                                <span>👪 Idealno za porodice</span>
+                                <span>🛏️ Spojene dve dvokrevetne sobe</span>
+                            </div>
+                            <div class="price-booking">
+                                <a href="contact.html" class="book-btn">Rezervišite Sada</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <section class="booking-info" data-aos="fade-up">
+            <div class="container">
+                <h3>Booking Information</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🕐 Check-in / Check-out</h4>
+                        <p><strong>Check-in:</strong> 3:00 PM</p>
+                        <p><strong>Check-out:</strong> 12:00 PM</p>
+                        <p>Early check-in and late check-out available upon request</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🅿️ Amenities & Services</h4>
+                        <p>• Free parking for guests</p>
+                        <p>• 24/7 front desk service</p>
+                        <p>• Luggage storage available</p>
+                        <p>• Daily housekeeping</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>📋 Policies</h4>
+                        <p>• Free cancellation up to 24 hours before arrival</p>
+                        <p>• Children under 12 stay free with parents</p>
+                        <p>• Pet-friendly rooms available</p>
+                        <p>• No smoking in all rooms</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Hotel Boss</h4>
+                    <p>Your premier destination for luxury accommodation.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Contact</h5>
+                    <p>📍 123 Main Street, City Center</p>
+                    <p>📞 +1 (555) 123-4567</p>
+                    <p>✉️ info@hoteleurope.com</p>
+                </div>
+            </div>
+            <p>&copy; 2024 Hotel Boss. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/language.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>

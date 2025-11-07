@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerija - Hotel Boss</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="Hotel Boss Logo">
+            </div>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="mobile-menu">
+                <li><a href="index.html" data-text-key="nav-home">POČETNA</a></li>
+                <li><a href="rooms.html" data-text-key="nav-rooms">SOBE</a></li>
+                <li><a href="about.html" data-text-key="nav-about">O NAMA</a></li>
+                <li><a href="gallery.html" data-text-key="nav-gallery">GALERIJA SLIKA</a></li>
+                <li><a href="contact.html" data-text-key="nav-contact">REZERVIŠI SMJEŠTAJ</a></li>
+                <li class="language-menu-item">
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="bs">🇧🇦 BS</button>
+                        <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-hero">
+            <div class="hero-content" data-aos="fade-left">
+                <h2 data-text-key="gallery-title">Galerija Hotela</h2>
+                <p data-text-key="gallery-description">Otkrijte eleganciju i ljepotu Hotel Boss-a kroz našu kolekciju prekrasnih slika koje prikazuju naš smještaj, sadržaje i ambijent.</p>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <div class="gallery-categories" data-aos="fade-up">
+                    <button class="category-btn active" data-category="all" data-text-key="category-all">Sve Slike</button>
+                    <button class="category-btn" data-category="rooms" data-text-key="category-rooms">Sobe i Apartmani</button>
+                    <button class="category-btn" data-category="exterior" data-text-key="category-exterior">Eksterijer Hotela</button>
+                </div>
+
+                <div class="gallery-grid">
+                    <!-- Rooms & Suites -->
+                    <div class="gallery-item rooms" data-aos="fade-up" data-aos-delay="100">
+                        <a href="assets/images/room-standard-1.jpg" data-lightbox="gallery" data-title="Standardna Soba - Udobna i dobro opremljena">
+                            <img src="assets/images/room-standard-1.jpg" alt="Standardna Soba">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h4>Standardna Soba</h4>
+                                    <p>Moderna udobnost</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="gallery-item rooms" data-aos="fade-up" data-aos-delay="200">
+                        <a href="assets/images/room-deluxe-1.jpg" data-lightbox="gallery" data-title="Deluxe Soba - Prostorna sa pogledom na grad">
+                            <img src="assets/images/room-deluxe-1.jpg" alt="Deluxe Soba">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h4>Deluxe Soba</h4>
+                                    <p>Pogled na grad i luksuz</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="gallery-item rooms" data-aos="fade-up" data-aos-delay="300">
+                        <a href="assets/images/suite-executive.jpg" data-lightbox="gallery" data-title="Izvršni Apartman - Ultimativno luksuzno iskustvo">
+                            <img src="assets/images/suite-executive.jpg" alt="Izvršni Apartman">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h4>Izvršni Apartman</h4>
+                                    <p>Premium smještaj</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="gallery-item rooms" data-aos="fade-up" data-aos-delay="400">
+                        <a href="assets/images/family-room.jpg" data-lightbox="gallery" data-title="Porodična Soba - Savršeno za porodične boravke">
+                            <img src="assets/images/family-room.jpg" alt="Porodična Soba">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h4>Porodična Soba</h4>
+                                    <p>Prostor za porodice</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Dining -->
+                                                </div>
+                        </a>
+                    </div>
+
+                    <!-- Hotel Exterior -->
+                    <div class="gallery-item exterior" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/images/hotel-exterior-day.jpg" alt="Eksterijer Hotela Danju">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Eksterijer Hotela</h4>
+                                <p>Moderan i elegantan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item exterior" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/images/hotel-exterior-night.jpg" alt="Eksterijer Hotela Noću">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Noćni Pogled</h4>
+                                <p>Prekrasno osvjetljenje</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item exterior" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets/images/entrance.jpg" alt="Ulaz u Hotel">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Glavni Ulaz</h4>
+                                <p>Dobrodošli i veličanstven</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item exterior" data-aos="fade-up" data-aos-delay="400">
+                        <img src="assets/images/city-view.jpg" alt="Pogled na Grad">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Pogled na Grad</h4>
+                                <p>Panoramski pogled</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" data-aos="fade-up">
+            <div class="container">
+                <div class="cta-content">
+                    <h3 data-text-key="cta-title">Spremni da doživite Hotel Boss?</h3>
+                    <p data-text-key="cta-description">Rezervišite svoj boravak danas i otkrijte zašto naši gosti biraju nas za svoj komfor i luksuzne potrebe.</p>
+                    <a href="contact.html" class="cta-button" data-text-key="cta-button">Napravite Rezervaciju</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Hotel Boss</h4>
+                    <p data-text-key="footer-description">Vaša glavna destinacija za luksuzni smještaj.</p>
+                </div>
+                <div class="footer-section">
+                    <h5 data-text-key="footer-contact-title">Kontakt</h5>
+                    <p>📍 Glavna ulica 123, Centar grada</p>
+                    <p>📞 +387 (33) 123-456</p>
+                    <p>✉️ info@hotelboss.ba</p>
+                </div>
+            </div>
+            <p data-text-key="footer-copyright">&copy; 2024 Hotel Boss. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/language.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Gallery filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    const category = btn.dataset.category;
+
+                    galleryItems.forEach(item => {
+                        if (category === 'all' || item.classList.contains(category)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

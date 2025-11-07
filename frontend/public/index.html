@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Boss - Luksuzni Smještaj</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="Hotel Boss Logo">
+            </div>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="mobile-menu">
+                <li><a href="index.html" data-text-key="nav-home">POČETNA</a></li>
+                <li><a href="rooms.html" data-text-key="nav-rooms">SOBE</a></li>
+                <li><a href="about.html" data-text-key="nav-about">O NAMA</a></li>
+                <li><a href="gallery.html" data-text-key="nav-gallery">GALERIJA SLIKA</a></li>
+                <li><a href="contact.html" data-text-key="nav-contact">REZERVIŠI SMJEŠTAJ</a></li>
+                <li class="language-menu-item">
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="bs">🇧🇦 BS</button>
+                        <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content" data-aos="fade-right">
+                <h1 data-text-key="index-welcome">Dobrodošli u</h1>
+                <h2>Hotel Boss</h2>
+                <p data-text-key="index-subtitle">Glamur i luksuz na dohvat ruke</p>
+                <a href="contact.html" class="cta-button" data-text-key="index-cta">Rezervišite sada</a>
+            </div>
+        </section>        <section class="about">
+            <div class="container" data-aos="fade-right">
+                <h3>O Hotel Boss</h3>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Smešten u veoma mirnom delu grada koji odiše prošlim vremenima, garantuje kvalitetan odmor, koji je svima potreban, kako bi bili spremni za nove izazove i svakodnevne obaveze.</p>
+                        <p>16 komfornih i luksuznih soba uređenih u skladu sa najnovijim trendovima omogućiće da se osećate odmorno, sveže i spremno kako za poslovne susrete i obaveze, tako i za putovanja iz privatnih razloga.</p>
+                        <p>Hotelu posebnost daje njegova lokacija gde su Vam istorijske građevine na dohvat ruke bez korišćenja prevoznih sredstava.</p>
+                        <p>Objedinili smo visoki standard i udobnost, profesionalnost i ljubaznost, te želimo da naš hotel "Hotel Boss" bude mesto koje ćete osećati kao "drugi dom", jer Vaše želje stavljamo na prvo mesto.</p>
+                    </div>
+                    <div class="features">
+                        <div class="feature">
+                            <h4>🏛️ Istorijska Lokacija</h4>
+                            <p>Istorijske građevine u krugu od par koraka</p>
+                        </div>
+                        <div class="feature">
+                            <h4>🛏️ 16 Luksuznih Soba</h4>
+                            <p>Komfor dizajniran prema najnovijim trendovima</p>
+                        </div>
+                        <div class="feature">
+                            <h4>🌟 Visoki Standardi Usluge</h4>
+                            <p>Profesionalno i ljubazno osoblje</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="rooms-preview">
+            <div class="container" data-aos="fade-up">
+                <h3>Naše Sobe</h3>
+                <div class="room-grid">
+                    <div class="room-card">
+                        <img src="assets/images/room1.jpg" alt="Standardna Soba">
+                        <div class="room-info">
+                            <h4>Standardna Soba</h4>
+                            <p>Udobna soba sa modernim sadržajima, savršena za poslovne putnike.</p>
+                            <div class="room-amenities">
+                                <span>📶 Besplatan Wi-Fi</span>
+                                <span>❄️ Klima</span>
+                                <span>📺 Smart TV</span>
+                            </div>
+                            <div class="price-booking">
+                                <span class="price">80€/noć</span>
+                                <a href="contact.html" class="book-btn">Rezerviši</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-card">
+                        <img src="assets/images/room2.jpg" alt="Deluxe Soba">
+                        <div class="room-info">
+                            <h4>Deluxe Soba</h4>
+                            <p>Prostrana soba sa pogledom na grad i premium sadržajima.</p>
+                            <div class="room-amenities">
+                                <span>🌆 Pogled na Grad</span>
+                                <span>🛁 Kada</span>
+                                <span>☕ Aparat za Kafu</span>
+                            </div>
+                            <div class="price-booking">
+                                <span class="price">120€/noć</span>
+                                <a href="contact.html" class="book-btn">Rezerviši</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-card">
+                        <img src="assets/images/suite.jpg" alt="Izvršni Apartman">
+                        <div class="room-info">
+                            <h4>Izvršni Apartman</h4>
+                            <p>Luksuzni apartman sa odvojenim dnevnim boravkom i premium uslugama.</p>
+                            <div class="room-amenities">
+                                <span>🏛️ Odvojen Dnevni Boravak</span>
+                                <span>🥐 Besplatan Doručak</span>
+                                <span>🛎️ Koncijaž</span>
+                            </div>
+                            <div class="price-booking">
+                                <span class="price">200€/noć</span>
+                                <a href="contact.html" class="book-btn">Rezerviši</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                                <div class="footer-section">
+                    <h4>Hotel Boss</h4>
+                    <p>Doživite luksuz i komfor u srcu Sarajeva.</p>
+                    <div class="social-links">
+                        <a href="#">📘</a>
+                        <a href="#">📷</a>
+                        <a href="#">🐦</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h5>Kontakt</h5>
+                    <p>📍 Logavina 4, Sarajevo 71000</p>
+                    <p>📞 +387 33 475 475</p>
+                    <p>✉️ info@hotelboss.ba</p>
+                </div>
+            </div>
+            <p>&copy; 2024 Hotel Boss. Sva prava zadržana.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/language.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: hotel-booking-backend-dev
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend/src:/usr/src/app/src
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+    command: ["node", "src/app.js"]
+    networks:
+      - hotel-network
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: hotel-booking-frontend-dev
+    ports:
+      - "3000:80"
+    volumes:
+      - ./frontend/public:/usr/share/nginx/html
+    restart: unless-stopped
+    depends_on:
+      - backend
+    networks:
+      - hotel-network
+
+networks:
+  hotel-network:
+    driver: bridge
