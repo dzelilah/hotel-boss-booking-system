@@ -1,226 +1,234 @@
-# 🏨 Hotel Boss - Booking System
+# 🏨 HotelBoss — Hotel Booking & Inventory Management System
 
-[![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)](https://www.docker.com/)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green?logo=node.js)](https://nodejs.org/)
-[![HTML5](https://img.shields.io/badge/HTML5-Frontend-orange?logo=html5)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-[![CSS3](https://img.shields.io/badge/CSS3-Responsive-blue?logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-brightgreen?logo=spring)](https://spring.io/projects/spring-boot)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)](https://nextjs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue?logo=postgresql)](https://www.postgresql.org/)
+[![Keycloak](https://img.shields.io/badge/Keycloak-23.0-orange?logo=keycloak)](https://www.keycloak.org/)
+[![Azure](https://img.shields.io/badge/Azure%20Queue-blue?logo=microsoftazure)](https://azure.microsoft.com/)
+[![Docker](https://img.shields.io/badge/Docker-Compose-blue?logo=docker)](https://www.docker.com/)
+[![Java](https://img.shields.io/badge/Java-21-red?logo=openjdk)](https://openjdk.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
 
-A modern, fully responsive hotel booking website with bilingual support (Bosnian/English) and complete Docker deployment setup.
-
-## 🌟 Features
-
-- 🏨 **Modern Hotel Website** - Professional design with responsive layout
-- 📧 **Email Booking System** - Automated email notifications for bookings
-- 🌐 **Bilingual Support** - Seamless switching between Bosnian and English
-- 📱 **Mobile Optimized** - Perfect experience on all devices
-- 🎨 **Professional Gallery** - Image filtering and categorization
-- 🐳 **Docker Ready** - Complete containerization for easy deployment
-- 🔒 **Security Features** - CORS, Helmet, Rate limiting
-- ⚡ **Performance Optimized** - Fast loading and smooth animations
-
-## 🚀 Quick Start with Docker
-
-### Prerequisites
-- [Docker](https://www.docker.com/get-started) and Docker Compose installed
-
-### Production Deployment
-```bash
-# Clone the repository
-git clone https://github.com/dzelilah/hotel-boss-booking-system.git
-cd hotel-boss-booking-system
-
-# Build and run with Docker Compose
-docker-compose up -d
-
-# Access the application
-# Frontend: http://localhost:3000
-# Backend API: http://localhost:5000
-```
-
-### Development Setup
-```bash
-# Run development environment with hot reload
-docker-compose -f docker-compose.dev.yml up -d
-
-# View logs
-docker-compose logs -f
-
-# Stop containers
-docker-compose down
-```
-
-## 🛠️ Manual Setup (Without Docker)
-
-### Backend Setup
-```bash
-cd backend
-npm install
-# Configure your .env file (see Configuration section)
-npm start
-```
-
-### Frontend Setup
-```bash
-cd frontend/public
-# Serve static files using any web server
-python -m http.server 3000
-# or use live-server, nginx, apache, etc.
-```
-
-## ⚙️ Configuration
-
-Create `.env` file in the backend directory:
-
-```env
-# Server Configuration
-PORT=5000
-NODE_ENV=production
-
-# Hotel Configuration  
-HOTEL_NAME=Hotel Boss
-HOTEL_EMAIL=info@hotelboss.com
-
-# SMTP Email Configuration
-SMTP_HOST=your-smtp-host
-SMTP_PORT=587
-SMTP_USER=your-email@domain.com
-SMTP_PASS=your-email-password
-```
-
-## 📡 API Endpoints
-
-- `POST /api/booking` - Submit booking request
-- `GET /health` - Health check endpoint
-
-## 🏗️ Project Structure
-
-```
-hotel-boss-booking-system/
-├── backend/                 # Node.js API server
-│   ├── src/
-│   │   ├── app.js          # Main application file
-│   │   ├── controllers/    # Route controllers
-│   │   ├── middleware/     # Custom middleware
-│   │   ├── routes/         # API routes
-│   │   ├── services/       # Business logic
-│   │   └── tests/          # Test files
-│   ├── Dockerfile
-│   └── package.json
-├── frontend/               # Static frontend
-│   ├── public/
-│   │   ├── *.html          # HTML pages
-│   │   └── assets/         # CSS, JS, images
-│   └── Dockerfile
-├── docker-compose.yml      # Production setup
-├── docker-compose.dev.yml  # Development setup
-└── README.md
-```
-
-## 🎨 Features Showcase
-
-### 🌐 Bilingual Support
-- Instant language switching between Bosnian and English
-- Persistent language selection using localStorage
-- Complete translation coverage for all content
-
-### 📱 Responsive Design
-- Mobile-first approach
-- Optimized navigation for touch devices
-- Perfect scaling across all screen sizes
-
-### 🎯 Professional Gallery
-- Category-based image filtering
-- Lightbox functionality for detailed viewing
-- Optimized image loading and display
-
-### 📧 Email Integration
-- Automated booking confirmations
-- Professional email templates
-- SMTP configuration for reliable delivery
-
-## 🐳 Docker Commands
-
-```bash
-# Build images
-docker-compose build
-
-# Start services
-docker-compose up -d
-
-# View logs
-docker-compose logs -f [service-name]
-
-# Stop services
-docker-compose down
-
-# Remove volumes (reset data)
-docker-compose down -v
-
-# Rebuild and restart
-docker-compose up -d --build
-```
-
-## 🔧 Tech Stack
-
-**Frontend:**
-- HTML5, CSS3, JavaScript (ES6+)
-- Responsive design with CSS Grid & Flexbox
-- AOS animations library
-- Custom bilingual language switcher
-
-**Backend:**
-- Node.js with Express.js
-- Email notifications with Nodemailer
-- Security: CORS, Helmet, Rate limiting
-- Request logging with Morgan
-- RESTful API architecture
-
-**DevOps:**
-- Docker & Docker Compose
-- Multi-stage builds
-- Production-ready containerization
-- Environment-based configuration
-
-## 🔒 Security Features
-
-- Backend runs as non-root user in containers
-- Security headers enabled (Helmet.js)
-- CORS properly configured
-- Rate limiting for API endpoints
-- Environment variables for sensitive data
-
-## 🚀 Deployment Options
-
-### Cloud Platforms
-- **Heroku**: Direct Docker deployment
-- **DigitalOcean**: Docker droplets
-- **AWS ECS**: Container service
-- **Google Cloud Run**: Serverless containers
-
-### VPS Deployment
-1. Clone repository on your server
-2. Configure environment variables
-3. Run `docker-compose up -d`
-4. Setup reverse proxy (nginx) for SSL
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📧 Contact
-
-- **Website**: [Hotel Boss Demo](http://localhost:3000)
-- **Repository**: [GitHub](https://github.com/dzelilah/hotel-boss-booking-system)
-- **Issues**: [Report Bug](https://github.com/dzelilah/hotel-boss-booking-system/issues)
+> A full-stack hotel management platform supporting guest reservations, room inventory tracking, and admin operations with role-based access control.
 
 ---
 
-<p align="center">Made with ❤️ for modern hotel management</p>
+## 📐 Architecture Overview
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                        Client Browser                            │
+└──────────────────────────┬───────────────────────────────────────┘
+                           │ HTTP/HTTPS
+                           ▼
+┌──────────────────────────────────────────────────────────────────┐
+│              Frontend — Next.js 14 (TypeScript)                   │
+│  • App Router pages (home, rooms, booking, admin dashboard)       │
+│  • Keycloak-js for authentication (PKCE flow)                     │
+│  • Axios with JWT token injection                                 │
+│  • TanStack Query for server state                                │
+│  • Role-based UI (GUEST / STAFF / ADMIN)                         │
+└──────────────────────────┬───────────────────────────────────────┘
+                           │ REST API calls with Bearer JWT
+                           ▼
+┌──────────────────────────────────────────────────────────────────┐
+│             Backend — Spring Boot 3.2 (Java 21)                   │
+│  • JWT validation via Keycloak JWKS                               │
+│  • Role-based endpoint security (@PreAuthorize)                   │
+│  • Transactional room availability + reservation creation         │
+│  • Azure Queue message publishing on booking                      │
+│  • Swagger UI at /swagger-ui.html                                 │
+└────────────┬──────────────────────────┬──────────────────────────┘
+             │ JPA / SQL                │ Azure SDK
+             ▼                         ▼
+┌────────────────────┐      ┌──────────────────────────────────────┐
+│  PostgreSQL 16     │      │  Azure Storage Queue                  │
+│  • rooms           │      │  booking-confirmations queue          │
+│  • reservations    │      │  (Azurite locally)                    │
+└────────────────────┘      └──────────────────────────────────────┘
+             │
+             ▼
+┌────────────────────┐
+│  Keycloak 23.0     │
+│  Realm: hotelboss  │
+│  Roles: GUEST,     │
+│  STAFF, ADMIN      │
+└────────────────────┘
+```
+
+**Data flow for booking:**
+1. User logs in via Keycloak (PKCE OAuth2 flow)
+2. Frontend sends `POST /api/reservations` with JWT
+3. Backend validates JWT, checks room availability
+4. Creates reservation in PostgreSQL (`@Transactional`)
+5. Enqueues `BOOKING_CONFIRMATION` message to Azure Queue
+6. Background worker (Azure Function / scheduler) processes queue → sends email
+
+---
+
+## 🗂 Folder Structure
+
+```
+/
+├── backend/                    ← Spring Boot (Java 21, Maven)
+│   ├── src/main/java/com/hotelboss/
+│   │   ├── config/             ← SecurityConfig, AzureQueueConfig
+│   │   ├── controller/         ← RoomController, ReservationController, AdminController
+│   │   ├── dto/                ← Request/Response DTOs
+│   │   ├── exception/          ← GlobalExceptionHandler, custom exceptions
+│   │   ├── model/              ← JPA entities + enums
+│   │   ├── repository/         ← Spring Data JPA repositories
+│   │   └── service/            ← Business logic services
+│   ├── src/main/resources/application.yml
+│   ├── pom.xml
+│   └── Dockerfile
+├── frontend/                   ← Next.js 14 (TypeScript, App Router)
+│   ├── app/                    ← Page routes
+│   │   ├── page.tsx            ← Landing page
+│   │   ├── rooms/              ← Room listings + detail
+│   │   ├── booking/            ← Booking form + confirmation
+│   │   ├── my-reservations/    ← Guest reservation history
+│   │   └── admin/              ← Admin dashboard, rooms, reservations
+│   ├── components/             ← Reusable React components
+│   │   ├── auth/               ← KeycloakProvider, ProtectedRoute, RoleGuard
+│   │   ├── ui/                 ← Navbar, Footer
+│   │   ├── rooms/              ← RoomCard, RoomSearch
+│   │   ├── booking/            ← BookingForm
+│   │   └── admin/              ← StatCard, RoomTable, ReservationTable
+│   ├── lib/                    ← keycloak.ts, api.ts, hooks/
+│   └── Dockerfile
+├── infra/
+│   ├── keycloak/realm-export.json   ← Auto-imported Keycloak realm
+│   └── azure/README.md              ← Azure Queue setup notes
+├── docker-compose.yml          ← Full stack orchestration
+├── docker-compose.dev.yml      ← Dev overrides with Azurite
+├── .env.example                ← Environment variable documentation
+└── README.md
+```
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/get-started) & Docker Compose
+- Java 21 (for local backend development)
+- Node.js 20+ (for local frontend development)
+
+### Run with Docker Compose
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/dzelilah/hotel-boss-booking-system.git
+cd hotel-boss-booking-system
+
+# 2. Copy environment variables
+cp .env.example .env
+
+# 3. Start all services (with Azurite for local Azure Queue)
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+
+# Services will be available at:
+# Frontend:  http://localhost:3000
+# Backend:   http://localhost:8080
+# Keycloak:  http://localhost:8180
+# Swagger:   http://localhost:8080/swagger-ui.html
+# Azurite:   http://localhost:10001 (queue)
+```
+
+---
+
+## 🔐 Keycloak Setup
+
+The Keycloak realm is **automatically imported** from `infra/keycloak/realm-export.json` on first startup.
+
+### Test User Credentials
+
+| Role  | Email               | Password   |
+|-------|---------------------|------------|
+| GUEST | guest@hotel.com     | guest123   |
+| STAFF | staff@hotel.com     | staff123   |
+| ADMIN | admin@hotel.com     | admin123   |
+
+### Accessing Keycloak Admin Console
+
+- URL: http://localhost:8180/admin
+- Username: `admin`
+- Password: `admin`
+
+---
+
+## 📡 API Endpoints
+
+### Public Endpoints (no auth required)
+
+| Method | Path              | Description          |
+|--------|-------------------|----------------------|
+| GET    | `/api/rooms`      | List all rooms       |
+| GET    | `/api/rooms?available=true` | Available rooms only |
+| GET    | `/api/rooms/{id}` | Get room by ID       |
+
+### Guest Endpoints (requires `GUEST` role)
+
+| Method | Path                    | Description                   |
+|--------|-------------------------|-------------------------------|
+| POST   | `/api/reservations`     | Create a reservation          |
+| GET    | `/api/reservations/my`  | Get current guest's reservations |
+
+### Admin/Staff Endpoints (requires `ADMIN` or `STAFF` role)
+
+| Method | Path                                | Description               |
+|--------|-------------------------------------|---------------------------|
+| GET    | `/api/admin/rooms`                  | List all rooms            |
+| POST   | `/api/admin/rooms`                  | Create a room             |
+| PUT    | `/api/admin/rooms/{id}`             | Update a room             |
+| GET    | `/api/admin/reservations`           | List all reservations     |
+| PUT    | `/api/admin/reservations/{id}/status` | Update reservation status |
+
+---
+
+## 🛠️ Local Development
+
+### Backend (Spring Boot)
+
+```bash
+cd backend
+# Requires PostgreSQL and Keycloak running (via Docker Compose)
+./mvnw spring-boot:run
+```
+
+### Frontend (Next.js)
+
+```bash
+cd frontend
+cp .env.example .env.local
+npm install
+npm run dev
+```
+
+---
+
+## 🐳 Docker Details
+
+- **Backend**: Multi-stage Maven build → Eclipse Temurin 21 JRE (Alpine)
+- **Frontend**: Multi-stage npm build → Node.js 20 Alpine (standalone output)
+- **Database**: PostgreSQL 16 with persistent volume
+- **Auth**: Keycloak 23.0 with automatic realm import
+- **Queue**: Azurite (dev) or Azure Storage (production)
+
+---
+
+## 🔧 Tech Stack
+
+| Layer       | Technology                              |
+|-------------|----------------------------------------|
+| Backend     | Spring Boot 3.2, Java 21, Maven        |
+| Frontend    | Next.js 14, TypeScript, Tailwind CSS   |
+| Database    | PostgreSQL 16, Spring Data JPA         |
+| Auth        | Keycloak 23.0, OAuth2/JWT (PKCE)       |
+| Messaging   | Azure Storage Queue (Azurite for dev)  |
+| Container   | Docker, Docker Compose                 |
+| API Docs    | SpringDoc OpenAPI (Swagger UI)         |
+| Forms       | React Hook Form + Zod                  |
+| State       | TanStack Query v5                      |
