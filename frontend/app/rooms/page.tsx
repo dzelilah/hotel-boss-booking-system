@@ -23,23 +23,119 @@ const ROOM_BADGE_LABELS: Record<string, string> = {
   SUITE: 'Family Suite',
 };
 
+/** Static room content shown when the API is not available */
+function StaticRooms() {
+  return (
+    <>
+      <div className="room-card detailed" data-aos="fade-up" data-aos-delay="100">
+        <div className="room-image">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop" alt="Standard Soba" />
+          <div className="room-badge">Najpopularnija</div>
+        </div>
+        <div className="room-info">
+          <h3>Standard Soba</h3>
+          <p className="room-description">Dvokrevetna soba sa bračnim krevetom. Soba pored ostalog sadrži i mini-bar, klima uređaj i Led TV.</p>
+          <div className="room-features">
+            <h4>U cenu sobe je uključeno:</h4>
+            <ul>
+              <li>🛏️ Udobnost</li>
+              <li>🍳 Doručak</li>
+              <li>📶 Hotspot (WiFi)</li>
+              <li>🍷 Mini Bar</li>
+              <li>🏙️ Pogled na grad</li>
+              <li>🔒 Sigurnosni sef</li>
+              <li>❄️ Klima</li>
+              <li>🕐 7/24 service</li>
+            </ul>
+          </div>
+          <div className="room-specs">
+            <span>👥 Maksimalno: 2 odrasle osobe</span>
+            <span>🛏️ Bračni krevet</span>
+          </div>
+          <div className="price-booking">
+            <Link href="/contact" className="book-btn">Rezervišite Sada</Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="room-card detailed" data-aos="fade-up" data-aos-delay="200">
+        <div className="room-image">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&h=600&fit=crop" alt="Deluxe Soba" />
+          <div className="room-badge deluxe">Deluxe</div>
+        </div>
+        <div className="room-info">
+          <h3>Deluxe Soba</h3>
+          <p className="room-description">Dvokrevetna soba sa 1+1 dva kreveta. Soba pored ostalog sadrži i mini-bar, klima uređaj i Led TV.</p>
+          <div className="room-features">
+            <h4>U cenu sobe je uključeno:</h4>
+            <ul>
+              <li>🛏️ Udobnost</li>
+              <li>🍳 Doručak</li>
+              <li>📶 Hotspot (WiFi)</li>
+              <li>🍷 Mini Bar</li>
+              <li>🏙️ Pogled na grad</li>
+              <li>🔒 Sigurnosni sef</li>
+              <li>❄️ Klima</li>
+              <li>🕐 7/24 service</li>
+            </ul>
+          </div>
+          <div className="room-specs">
+            <span>👥 Maksimalno: 2 odrasle osobe</span>
+            <span>🛏️ 1+1 dva kreveta</span>
+          </div>
+          <div className="price-booking">
+            <Link href="/contact" className="book-btn">Rezervišite Sada</Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="room-card detailed" data-aos="fade-up" data-aos-delay="300">
+        <div className="room-image">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop" alt="Family Suite" />
+          <div className="room-badge suite">Family Suite</div>
+        </div>
+        <div className="room-info">
+          <h3>Family Suite</h3>
+          <p className="room-description">Spojene dve dvokrevetne sobe za porodice. Soba pored ostalog sadrži i mini-bar, klima uređaj i Led TV.</p>
+          <div className="room-features">
+            <h4>U cenu sobe je uključeno:</h4>
+            <ul>
+              <li>🛏️ Udobnost</li>
+              <li>🍳 Doručak</li>
+              <li>📶 Hotspot (WiFi)</li>
+              <li>🍷 Mini Bar</li>
+              <li>🏙️ Pogled na grad</li>
+              <li>🔒 Sigurnosni sef</li>
+              <li>❄️ Klima</li>
+              <li>🕐 7/24 service</li>
+            </ul>
+          </div>
+          <div className="room-specs">
+            <span>👪 Idealno za porodice</span>
+            <span>🛏️ Spojene dve dvokrevetne sobe</span>
+          </div>
+          <div className="price-booking">
+            <Link href="/contact" className="book-btn">Rezervišite Sada</Link>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
 function RoomsContent() {
   const searchParams = useSearchParams();
   const availableOnly = searchParams.get('available') === 'true';
   const { data: rooms, isLoading, error } = useRooms(availableOnly);
 
-  if (isLoading) {
+  // Show static rooms while loading or on error (API not available)
+  if (isLoading || error) {
     return (
-      <div style={{ textAlign: 'center', padding: '4rem 0' }}>
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" style={{ margin: '0 auto' }}></div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div style={{ textAlign: 'center', padding: '4rem 0' }}>
-        <p style={{ color: '#dc2626' }}>Greška pri učitavanju soba. Molimo pokušajte ponovo.</p>
+      <div className="room-grid">
+        <StaticRooms />
       </div>
     );
   }
@@ -97,104 +193,7 @@ function RoomsContent() {
           </div>
         ))
       ) : (
-        /* Static rooms when API returns no results */
-        <>
-          <div className="room-card detailed" data-aos="fade-up" data-aos-delay="100">
-            <div className="room-image">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop" alt="Standard Soba" />
-              <div className="room-badge">Najpopularnija</div>
-            </div>
-            <div className="room-info">
-              <h3>Standard Soba</h3>
-              <p className="room-description">Dvokrevetna soba sa bračnim krevetom. Soba pored ostalog sadrži i mini-bar, klima uređaj i Led TV.</p>
-              <div className="room-features">
-                <h4>U cenu sobe je uključeno:</h4>
-                <ul>
-                  <li>🛏️ Udobnost</li>
-                  <li>🍳 Doručak</li>
-                  <li>📶 Hotspot (WiFi)</li>
-                  <li>🍷 Mini Bar</li>
-                  <li>🏙️ Pogled na grad</li>
-                  <li>🔒 Sigurnosni sef</li>
-                  <li>❄️ Klima</li>
-                  <li>🕐 7/24 service</li>
-                </ul>
-              </div>
-              <div className="room-specs">
-                <span>👥 Maksimalno: 2 odrasle osobe</span>
-                <span>🛏️ Bračni krevet</span>
-              </div>
-              <div className="price-booking">
-                <Link href="/contact" className="book-btn">Rezervišite Sada</Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="room-card detailed" data-aos="fade-up" data-aos-delay="200">
-            <div className="room-image">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&h=600&fit=crop" alt="Deluxe Soba" />
-              <div className="room-badge deluxe">Deluxe</div>
-            </div>
-            <div className="room-info">
-              <h3>Deluxe Soba</h3>
-              <p className="room-description">Dvokrevetna soba sa 1+1 dva kreveta. Soba pored ostalog sadrži i mini-bar, klima uređaj i Led TV.</p>
-              <div className="room-features">
-                <h4>U cenu sobe je uključeno:</h4>
-                <ul>
-                  <li>🛏️ Udobnost</li>
-                  <li>🍳 Doručak</li>
-                  <li>📶 Hotspot (WiFi)</li>
-                  <li>🍷 Mini Bar</li>
-                  <li>🏙️ Pogled na grad</li>
-                  <li>🔒 Sigurnosni sef</li>
-                  <li>❄️ Klima</li>
-                  <li>🕐 7/24 service</li>
-                </ul>
-              </div>
-              <div className="room-specs">
-                <span>👥 Maksimalno: 2 odrasle osobe</span>
-                <span>🛏️ 1+1 dva kreveta</span>
-              </div>
-              <div className="price-booking">
-                <Link href="/contact" className="book-btn">Rezervišite Sada</Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="room-card detailed" data-aos="fade-up" data-aos-delay="300">
-            <div className="room-image">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop" alt="Family Suite" />
-              <div className="room-badge suite">Family Suite</div>
-            </div>
-            <div className="room-info">
-              <h3>Family Suite</h3>
-              <p className="room-description">Spojene dve dvokrevetne sobe za porodice. Soba pored ostalog sadrži i mini-bar, klima uređaj i Led TV.</p>
-              <div className="room-features">
-                <h4>U cenu sobe je uključeno:</h4>
-                <ul>
-                  <li>🛏️ Udobnost</li>
-                  <li>🍳 Doručak</li>
-                  <li>📶 Hotspot (WiFi)</li>
-                  <li>🍷 Mini Bar</li>
-                  <li>🏙️ Pogled na grad</li>
-                  <li>🔒 Sigurnosni sef</li>
-                  <li>❄️ Klima</li>
-                  <li>🕐 7/24 service</li>
-                </ul>
-              </div>
-              <div className="room-specs">
-                <span>👪 Idealno za porodice</span>
-                <span>🛏️ Spojene dve dvokrevetne sobe</span>
-              </div>
-              <div className="price-booking">
-                <Link href="/contact" className="book-btn">Rezervišite Sada</Link>
-              </div>
-            </div>
-          </div>
-        </>
+        <StaticRooms />
       )}
     </div>
   );
@@ -213,9 +212,7 @@ export default function RoomsPage() {
       <section className="room-types">
         <div className="container">
           <Suspense fallback={
-            <div style={{ textAlign: 'center', padding: '4rem 0' }}>
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" style={{ margin: '0 auto' }}></div>
-            </div>
+            <div className="room-grid"><StaticRooms /></div>
           }>
             <RoomsContent />
           </Suspense>
@@ -251,4 +248,5 @@ export default function RoomsPage() {
     </div>
   );
 }
+
 
