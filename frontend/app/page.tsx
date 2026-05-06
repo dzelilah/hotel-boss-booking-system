@@ -1,65 +1,129 @@
 import Link from 'next/link';
-import { RoomSearch } from '@/components/rooms/RoomSearch';
-import { BedDouble, Shield, Clock, Star } from 'lucide-react';
 
 export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6">
-            Welcome to HotelBoss
-          </h1>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Experience luxury and comfort. Book your perfect room with our seamless reservation system.
-          </p>
-          <RoomSearch />
+      <section className="hero">
+        <div className="hero-content" data-aos="fade-right">
+          <h1>Dobrodošli u</h1>
+          <h2>Hotel Boss</h2>
+          <p>Glamur i luksuz na dohvat ruke</p>
+          <Link href="/contact" className="cta-button">Rezervišite sada</Link>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose HotelBoss?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BedDouble className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Premium Rooms</h3>
-              <p className="text-gray-600">Single rooms, doubles, and luxury suites for every occasion.</p>
+      {/* About Section */}
+      <section className="about">
+        <div className="container" data-aos="fade-right">
+          <h3>O Hotel Boss</h3>
+          <div className="about-content">
+            <div className="about-text">
+              <p>
+                Smešten u veoma mirnom delu grada koji odiše prošlim vremenima, garantuje kvalitetan odmor,
+                koji je svima potreban, kako bi bili spremni za nove izazove i svakodnevne obaveze.
+              </p>
+              <p>
+                16 komfornih i luksuznih soba uređenih u skladu sa najnovijim trendovima omogućiće da se
+                osećate odmorno, sveže i spremno kako za poslovne susrete i obaveze, tako i za putovanja
+                iz privatnih razloga.
+              </p>
+              <p>
+                Hotelu posebnost daje njegova lokacija gde su Vam istorijske građevine na dohvat ruke bez
+                korišćenja prevoznih sredstava.
+              </p>
+              <p>
+                Objedinili smo visoki standard i udobnost, profesionalnost i ljubaznost, te želimo da naš
+                hotel &ldquo;Hotel Boss&rdquo; bude mesto koje ćete osećati kao &ldquo;drugi dom&rdquo;, jer Vaše želje
+                stavljamo na prvo mesto.
+              </p>
             </div>
-            <div className="text-center p-6">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-green-600" />
+            <div className="features">
+              <div className="feature">
+                <h4>🏛️ Istorijska Lokacija</h4>
+                <p>Istorijske građevine u krugu od par koraka</p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Secure Booking</h3>
-              <p className="text-gray-600">Your reservations are protected with enterprise-grade security.</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-purple-600" />
+              <div className="feature">
+                <h4>🛏️ 16 Luksuznih Soba</h4>
+                <p>Komfor dizajniran prema najnovijim trendovima</p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Instant Confirmation</h3>
-              <p className="text-gray-600">Get immediate confirmation with email notifications via Azure Queue.</p>
+              <div className="feature">
+                <h4>🌟 Visoki Standardi Usluge</h4>
+                <p>Profesionalno i ljubazno osoblje</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-blue-50 py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <Star className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Book Your Stay?</h2>
-          <p className="text-gray-600 mb-8">Browse our available rooms and find your perfect accommodation.</p>
-          <Link
-            href="/rooms"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-          >
-            View All Rooms
-          </Link>
+      {/* Rooms Preview Section */}
+      <section className="rooms-preview">
+        <div className="container" data-aos="fade-up">
+          <h3>Naše Sobe</h3>
+          <div className="room-grid">
+            {/* Standard Room */}
+            <div className="room-card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop"
+                alt="Standardna Soba"
+              />
+              <div className="room-info">
+                <h4>Standardna Soba</h4>
+                <p>Udobna soba sa modernim sadržajima, savršena za poslovne putnike.</p>
+                <div className="room-amenities">
+                  <span>📶 Besplatan Wi-Fi</span>
+                  <span>❄️ Klima</span>
+                  <span>📺 Smart TV</span>
+                </div>
+                <div className="price-booking">
+                  <Link href="/contact" className="book-btn">Rezerviši</Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Deluxe Room */}
+            <div className="room-card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&h=600&fit=crop"
+                alt="Deluxe Soba"
+              />
+              <div className="room-info">
+                <h4>Deluxe Soba</h4>
+                <p>Prostrana soba sa pogledom na grad i premium sadržajima.</p>
+                <div className="room-amenities">
+                  <span>🌆 Pogled na Grad</span>
+                  <span>🛁 Kada</span>
+                  <span>☕ Aparat za Kafu</span>
+                </div>
+                <div className="price-booking">
+                  <Link href="/contact" className="book-btn">Rezerviši</Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Suite */}
+            <div className="room-card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop"
+                alt="Family Suite"
+              />
+              <div className="room-info">
+                <h4>Family Suite</h4>
+                <p>Luksuzni apartman sa odvojenim dnevnim boravkom i premium uslugama.</p>
+                <div className="room-amenities">
+                  <span>🏛️ Spojene Sobe</span>
+                  <span>🥐 Besplatan Doručak</span>
+                  <span>🛎️ Koncijaž</span>
+                </div>
+                <div className="price-booking">
+                  <Link href="/contact" className="book-btn">Rezerviši</Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
