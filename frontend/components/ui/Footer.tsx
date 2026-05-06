@@ -7,9 +7,9 @@ export function Footer() {
             <h4>Hotel Boss</h4>
             <p>Doživite luksuz i komfor u srcu Sarajeva.</p>
             <div className="social-links">
-              <a href="#">📘</a>
-              <a href="#">📷</a>
-              <a href="#">🐦</a>
+              <a href="#" aria-label="Posjetite naš Facebook profil">📘</a>
+              <a href="#" aria-label="Posjetite naš Instagram profil">📷</a>
+              <a href="#" aria-label="Posjetite naš Twitter profil">🐦</a>
             </div>
           </div>
           <div className="footer-section">
