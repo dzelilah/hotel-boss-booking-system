@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useMyReservations } from '@/lib/hooks/useReservations';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { format } from 'date-fns';
@@ -31,7 +32,7 @@ function MyReservationsContent() {
       <div className="text-center py-16">
         <CalendarDays className="h-16 w-16 text-gray-300 mx-auto mb-4" />
         <p className="text-gray-500 text-lg">No reservations yet.</p>
-        <a href="/rooms" className="text-blue-600 hover:underline mt-2 block">Browse rooms to make a booking</a>
+        <Link href="/rooms" className="text-blue-600 hover:underline mt-2 block">Browse rooms to make a booking</Link>
       </div>
     );
   }
