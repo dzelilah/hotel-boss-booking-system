@@ -1,13 +1,19 @@
-FROM nginx:alpine
+# Build stage
+FROM node:20-alpine AS build
+WORKDIR /app
+COPY package.json package-lock.json* ./
+RUN npm ci
+COPY . .
+RUN npm run build
 
-# Copy static files to nginx html directory
-COPY public/ /usr/share/nginx/html/
-
-# Copy nginx configuration if needed
-# COPY nginx.conf /etc/nginx/nginx.conf
-
-# Expose port 80
-EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Runtime stage
+FROM node:20-alpine AS runtime
+WORKDIR /app
+ENV NODE_ENV production
+COPY --from=build /app/public ./public
+COPY --from=build /app/.next/standalone ./
+COPY --from=build /app/.next/static ./.next/static
+EXPOSE 3000
+ENV PORT 3000
+ENV HOSTNAME "0.0.0.0"
+CMD ["node", "server.js"]

@@ -1,36 +1,15 @@
 services:
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    container_name: hotelboss-azurite
+    ports:
+      - "10000:10000"
+      - "10001:10001"
+      - "10002:10002"
+    command: azurite --blobHost 0.0.0.0 --queueHost 0.0.0.0 --tableHost 0.0.0.0
+
   backend:
-    build: 
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: hotel-booking-backend-dev
-    ports:
-      - "5000:5000"
-    env_file:
-      - ./backend/.env
-    volumes:
-      - ./backend/src:/usr/src/app/src
-      - /usr/src/app/node_modules
-    restart: unless-stopped
-    command: ["node", "src/app.js"]
-    networks:
-      - hotel-network
-
-  frontend:
-    build: 
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: hotel-booking-frontend-dev
-    ports:
-      - "3000:80"
-    volumes:
-      - ./frontend/public:/usr/share/nginx/html
-    restart: unless-stopped
+    environment:
+      AZURE_QUEUE_CONNECTION_STRING: "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OGLjX+Y96tu9bOa/S7oFtfOrEWpo+4Kg==;QueueEndpoint=http://azurite:10001/devstoreaccount1;"
     depends_on:
-      - backend
-    networks:
-      - hotel-network
-
-networks:
-  hotel-network:
-    driver: bridge
+      - azurite

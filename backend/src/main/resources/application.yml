@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/hotelboss}
+    username: ${DB_USER:hotelboss}
+    password: ${DB_PASSWORD:hotelboss}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8180/realms/hotelboss}
+
+azure:
+  queue:
+    connection-string: ${AZURE_QUEUE_CONNECTION_STRING:DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OGLjX+Y96tu9bOa/S7oFtfOrEWpo+4Kg==;QueueEndpoint=http://localhost:10001/devstoreaccount1;}
+    name: ${AZURE_QUEUE_NAME:booking-confirmations}
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
