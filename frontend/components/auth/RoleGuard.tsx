@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useAuth } from '@/lib/hooks/useAuth';
+import { PageLoading } from '@/components/ui/PageLoading';
 
 interface RoleGuardProps {
   children: React.ReactNode;
@@ -23,11 +24,7 @@ export function RoleGuard({ children, roles, redirectTo = '/' }: RoleGuardProps)
   }, [initialized, isAuthenticated, hasRequiredRole, router, redirectTo]);
 
   if (!initialized || !isAuthenticated || !hasRequiredRole) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
-    );
+    return <PageLoading />;
   }
 
   return <>{children}</>;

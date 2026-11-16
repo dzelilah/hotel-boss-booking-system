@@ -2,11 +2,13 @@
 
 import { useEffect } from 'react';
 import { useAuth } from '@/lib/hooks/useAuth';
+import { PageLoading } from '@/components/ui/PageLoading';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
 }
 
+/** Sends visitors to the Keycloak login; they come back to the same URL (query string included). */
 export function ProtectedRoute({ children }: ProtectedRouteProps) {
   const { initialized, isAuthenticated, login } = useAuth();
 
@@ -16,16 +18,8 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
     }
   }, [initialized, isAuthenticated, login]);
 
-  if (!initialized) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
-    return null;
+  if (!initialized || !isAuthenticated) {
+    return <PageLoading label="Preusmjeravanje na prijavu…" />;
   }
 
   return <>{children}</>;

@@ -4,6 +4,8 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import api from '@/lib/api';
 import { Room } from './useRooms';
 
+export type ReservationStatus = 'PENDING' | 'CONFIRMED' | 'CANCELLED';
+
 export interface Reservation {
   id: number;
   guestId: string;
@@ -11,7 +13,9 @@ export interface Reservation {
   room: Room;
   checkIn: string;
   checkOut: string;
-  status: 'PENDING' | 'CONFIRMED' | 'CANCELLED';
+  nights: number;
+  totalPrice: number;
+  status: ReservationStatus;
   createdAt: string;
 }
 
@@ -22,13 +26,20 @@ export interface CreateReservationRequest {
   guestEmail: string;
 }
 
-export function useMyReservations() {
+export const STATUS_LABELS: Record<ReservationStatus, string> = {
+  PENDING: 'Na čekanju',
+  CONFIRMED: 'Potvrđena',
+  CANCELLED: 'Otkazana',
+};
+
+export function useMyReservations(enabled = true) {
   return useQuery<Reservation[]>({
     queryKey: ['my-reservations'],
     queryFn: async () => {
       const { data } = await api.get('/reservations/my');
       return data;
     },
+    enabled,
   });
 }
 
@@ -51,6 +62,23 @@ export function useCreateReservation() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['my-reservations'] });
+      queryClient.invalidateQueries({ queryKey: ['rooms'] });
+      queryClient.invalidateQueries({ queryKey: ['room-availability'] });
+    },
+  });
+}
+
+export function useCancelReservation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (id: number) => {
+      const { data } = await api.put(`/reservations/${id}/cancel`);
+      return data as Reservation;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['my-reservations'] });
+      queryClient.invalidateQueries({ queryKey: ['rooms'] });
+      queryClient.invalidateQueries({ queryKey: ['room-availability'] });
     },
   });
 }

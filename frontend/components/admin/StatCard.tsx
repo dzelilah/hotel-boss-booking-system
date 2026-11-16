@@ -4,20 +4,19 @@ interface StatCardProps {
   title: string;
   value: string | number;
   icon: LucideIcon;
-  color: string;
+  hint?: string;
 }
 
-export function StatCard({ title, value, icon: Icon, color }: StatCardProps) {
+export function StatCard({ title, value, icon: Icon, hint }: StatCardProps) {
   return (
-    <div className="bg-white rounded-xl shadow-md p-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <p className="text-sm font-medium text-gray-600">{title}</p>
-          <p className="text-3xl font-bold text-gray-900 mt-1">{value}</p>
-        </div>
-        <div className={`p-3 rounded-full ${color}`}>
-          <Icon className="h-6 w-6 text-white" />
-        </div>
+    <div className="stat-card">
+      <div>
+        <p className="stat-title">{title}</p>
+        <p className="stat-value">{value}</p>
+        {hint && <p className="stat-hint">{hint}</p>}
+      </div>
+      <div className="stat-icon" aria-hidden="true">
+        <Icon className="h-6 w-6" />
       </div>
     </div>
   );

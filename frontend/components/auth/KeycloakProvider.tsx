@@ -2,6 +2,7 @@
 
 import React, { createContext, useEffect, useState, useCallback } from 'react';
 import Keycloak from 'keycloak-js';
+import { useRouter } from 'next/navigation';
 import { getKeycloak } from '@/lib/keycloak';
 
 interface AuthContextValue {
@@ -25,9 +26,12 @@ export function KeycloakProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<{ name?: string; email?: string; sub?: string } | null>(null);
   const [roles, setRoles] = useState<string[]>([]);
   const [token, setToken] = useState<string | undefined>(undefined);
+  const router = useRouter();
 
   useEffect(() => {
     const kc = getKeycloak();
+    // Returning from the Keycloak login page? (Checked before init, which strips the hash.)
+    const isLoginCallback = /[#&](state|code|session_state)=/.test(window.location.hash);
     kc.init({
       onLoad: 'check-sso',
       silentCheckSsoRedirectUri: typeof window !== 'undefined'
@@ -35,6 +39,11 @@ export function KeycloakProvider({ children }: { children: React.ReactNode }) {
         : undefined,
       pkceMethod: 'S256',
     }).then((authenticated) => {
+      // keycloak-js strips the OIDC response (#state=...&code=...) from the URL, but Next's
+      // router restores its own copy of the URL; replace it through the router so it sticks.
+      if (isLoginCallback) {
+        router.replace(window.location.pathname + window.location.search, { scroll: false });
+      }
       setKeycloak(kc);
       setInitialized(true);
       setIsAuthenticated(authenticated);
@@ -52,6 +61,7 @@ export function KeycloakProvider({ children }: { children: React.ReactNode }) {
     }).catch(() => {
       setInitialized(true);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- init Keycloak exactly once
   }, []);
 
   const login = useCallback(() => {

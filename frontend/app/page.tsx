@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { AvailabilitySearch } from '@/components/booking/AvailabilitySearch';
 
 export default function HomePage() {
   return (
@@ -9,7 +10,15 @@ export default function HomePage() {
           <h1>Dobrodošli u</h1>
           <h2>Hotel Boss</h2>
           <p>Glamur i luksuz na dohvat ruke</p>
-          <Link href="/contact" className="cta-button">Rezervišite sada</Link>
+          <a href="#rezervacija" className="cta-button">Rezervišite sada</a>
+        </div>
+      </section>
+
+      {/* Availability search */}
+      <section className="availability-section home" id="rezervacija">
+        <div className="container">
+          <h3>Provjerite slobodne sobe</h3>
+          <AvailabilitySearch />
         </div>
       </section>
 
@@ -77,7 +86,7 @@ export default function HomePage() {
                   <span>📺 Smart TV</span>
                 </div>
                 <div className="price-booking">
-                  <Link href="/contact" className="book-btn">Rezerviši</Link>
+                  <Link href="/rooms?type=SINGLE#rezultati" className="book-btn">Rezerviši</Link>
                 </div>
               </div>
             </div>
@@ -98,7 +107,7 @@ export default function HomePage() {
                   <span>☕ Aparat za Kafu</span>
                 </div>
                 <div className="price-booking">
-                  <Link href="/contact" className="book-btn">Rezerviši</Link>
+                  <Link href="/rooms?type=DOUBLE#rezultati" className="book-btn">Rezerviši</Link>
                 </div>
               </div>
             </div>
@@ -119,7 +128,7 @@ export default function HomePage() {
                   <span>🛎️ Koncijaž</span>
                 </div>
                 <div className="price-booking">
-                  <Link href="/contact" className="book-btn">Rezerviši</Link>
+                  <Link href="/rooms?type=SUITE#rezultati" className="book-btn">Rezerviši</Link>
                 </div>
               </div>
             </div>
