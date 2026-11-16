@@ -35,4 +35,11 @@ public class ReservationController {
         String guestId = jwt.getSubject();
         return ResponseEntity.ok(reservationService.getReservationsByGuestId(guestId));
     }
+
+    @PutMapping("/{id}/cancel")
+    public ResponseEntity<ReservationResponseDTO> cancelMyReservation(
+            @PathVariable Long id,
+            @AuthenticationPrincipal Jwt jwt) {
+        return ResponseEntity.ok(reservationService.cancelByGuest(id, jwt.getSubject()));
+    }
 }

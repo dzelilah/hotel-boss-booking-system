@@ -7,19 +7,24 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
   security:
     oauth2:
       resourceserver:
         jwt:
+          # issuer-uri must match the "iss" claim, i.e. the URL the *browser* used to reach Keycloak.
           issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8180/realms/hotelboss}
+          # Where the backend fetches signing keys. In Docker this is the internal hostname,
+          # which differs from the public issuer URL above.
+          jwk-set-uri: ${KEYCLOAK_JWK_SET_URI:http://localhost:8180/realms/hotelboss/protocol/openid-connect/certs}
 
 azure:
   queue:
-    connection-string: ${AZURE_QUEUE_CONNECTION_STRING:DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OGLjX+Y96tu9bOa/S7oFtfOrEWpo+4Kg==;QueueEndpoint=http://localhost:10001/devstoreaccount1;}
+    connection-string: ${AZURE_QUEUE_CONNECTION_STRING:DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://localhost:10001/devstoreaccount1;}
     name: ${AZURE_QUEUE_NAME:booking-confirmations}
+
+hotel:
+  # Booking rules ("no check-in in the past") use the hotel's local date.
+  timezone: ${HOTEL_TIMEZONE:Europe/Sarajevo}
 
 server:
   port: 8080

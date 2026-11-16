@@ -1,7 +1,6 @@
 package com.hotelboss.dto;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,22 +8,22 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+/** Date rules (not in the past, check-out after check-in, max stay) live in ReservationService. */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReservationRequestDTO {
 
-    @NotNull(message = "Room ID is required")
+    @NotNull(message = "Soba je obavezna.")
     private Long roomId;
 
-    @NotNull(message = "Check-in date is required")
+    @NotNull(message = "Datum dolaska je obavezan.")
     private LocalDate checkIn;
 
-    @NotNull(message = "Check-out date is required")
-    @Future(message = "Check-out date must be in the future")
+    @NotNull(message = "Datum odlaska je obavezan.")
     private LocalDate checkOut;
 
-    @NotNull(message = "Guest email is required")
-    @Email(message = "Invalid email address")
+    @NotNull(message = "Email je obavezan.")
+    @Email(message = "Neispravna email adresa.")
     private String guestEmail;
 }

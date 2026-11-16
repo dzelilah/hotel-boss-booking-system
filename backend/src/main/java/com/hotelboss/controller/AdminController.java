@@ -5,6 +5,7 @@ import com.hotelboss.dto.RoomDTO;
 import com.hotelboss.model.ReservationStatus;
 import com.hotelboss.service.ReservationService;
 import com.hotelboss.service.RoomService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +27,12 @@ public class AdminController {
     }
 
     @PostMapping("/rooms")
-    public ResponseEntity<RoomDTO> createRoom(@RequestBody RoomDTO roomDTO) {
+    public ResponseEntity<RoomDTO> createRoom(@Valid @RequestBody RoomDTO roomDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(roomService.createRoom(roomDTO));
     }
 
     @PutMapping("/rooms/{id}")
-    public ResponseEntity<RoomDTO> updateRoom(@PathVariable Long id, @RequestBody RoomDTO roomDTO) {
+    public ResponseEntity<RoomDTO> updateRoom(@PathVariable Long id, @Valid @RequestBody RoomDTO roomDTO) {
         return ResponseEntity.ok(roomService.updateRoom(id, roomDTO));
     }
 

@@ -35,7 +35,7 @@ The Azurite emulator provides:
 
 Default connection string for Azurite (already configured in `docker-compose.dev.yml`):
 ```
-DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OGLjX+Y96tu9bOa/S7oFtfOrEWpo+4Kg==;QueueEndpoint=http://localhost:10001/devstoreaccount1;
+DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://localhost:10001/devstoreaccount1;
 ```
 
 ## Production Setup (Azure)

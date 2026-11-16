@@ -42,8 +42,11 @@ services:
       DB_URL: jdbc:postgresql://postgres:5432/hotelboss
       DB_USER: hotelboss
       DB_PASSWORD: hotelboss
-      KEYCLOAK_ISSUER_URI: http://keycloak:8080/realms/hotelboss
-      AZURE_QUEUE_CONNECTION_STRING: ${AZURE_QUEUE_CONNECTION_STRING:-DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OGLjX+Y96tu9bOa/S7oFtfOrEWpo+4Kg==;QueueEndpoint=http://azurite:10001/devstoreaccount1;}
+      # Tokens are issued to the browser via localhost:8180, so that is the "iss" claim...
+      KEYCLOAK_ISSUER_URI: http://localhost:8180/realms/hotelboss
+      # ...but inside the Docker network the backend reaches Keycloak by service name.
+      KEYCLOAK_JWK_SET_URI: http://keycloak:8080/realms/hotelboss/protocol/openid-connect/certs
+      AZURE_QUEUE_CONNECTION_STRING: ${AZURE_QUEUE_CONNECTION_STRING:-DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://azurite:10001/devstoreaccount1;}
       AZURE_QUEUE_NAME: booking-confirmations
     ports:
       - "8080:8080"

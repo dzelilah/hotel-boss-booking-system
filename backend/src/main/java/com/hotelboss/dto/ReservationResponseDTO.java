@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -20,6 +21,8 @@ public class ReservationResponseDTO {
     private RoomDTO room;
     private LocalDate checkIn;
     private LocalDate checkOut;
+    private long nights;
+    private BigDecimal totalPrice;
     private ReservationStatus status;
     private LocalDateTime createdAt;
 }

@@ -24,8 +24,6 @@ pids/
 # Coverage directory used by tools like istanbul
 coverage/
 
-# Docker
-.dockerignore
 
 # IDE
 .vscode/
@@ -65,6 +63,7 @@ target/
 .next/
 out/
 frontend/.next/
+frontend/.next-devrun/
 frontend/out/
 
 # Next.js standalone output
